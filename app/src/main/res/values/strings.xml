@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ControlesEntrada</string>
+    <string name="valor_1">Valor 1</string>
+    <string name="textview">Essa é uma TextView</string>
+    <string name="opcao_2" translatable="false">opção 2</string>
+    <string name="btn">Botão</string>
+    <string name="valor_2">Valor 2</string>
+    <string name="valor_3">Valor 3</string>
+    <string name="hedwiges_com_chap_u_seletor">img_desc</string>
+    <string name="ckb_valor_1">ckb valor 1</string>
+    <string name="ckb_valor_2">ckb valor 2</string>
+    <string name="ckb_valor_3">ckb valor 3</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="digite_um_texto">digitação de textos ou números</string>
+    <string name="switcher">switch</string>
+    <string name="resultados">Resultados</string>
+    <string name="txtBotao">Você clicou no botão :)</string>
+</resources>
