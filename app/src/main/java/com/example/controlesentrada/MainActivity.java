@@ -1,7 +1,5 @@
 package com.example.controlesentrada;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -10,6 +8,8 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     TextView resultado;
@@ -46,28 +46,24 @@ public class MainActivity extends AppCompatActivity {
     }
     public void botaoClick(View v)
     {
-        resultado.setText("Você clicou no Botão");
+        resultado.setText(R.string.txtBotao);
     }
     public void checkboxClick(View view) {
 
         String check = "";
 
-            if (chk1.isChecked())
-                {
-                    check = check.concat("Checkbox 1 Selecionado \n");
-                }
+        if (chk1.isChecked()) {
+            check = check.concat("Checkbox 1 Selecionado \n");
+        }
 
-                if (chk2.isChecked())
-                {
-                    check = check.concat("Checkbox 2 Selecionado \n");
-                }
-                if (chk3.isChecked())
-                {
-                    check = check.concat("Checkbox 3 Selecionado \n");
-                }
-           if (check=="")
-                check = " Nenhum checkbox foi selecionado";
-
+        if (chk2.isChecked()) {
+            check = check.concat("Checkbox 2 Selecionado \n");
+        }
+        if (chk3.isChecked()) {
+            check = check.concat("Checkbox 3 Selecionado \n");
+        }
+        if (check.equals(""))
+            check = " Nenhum checkbox foi selecionado";
 
 
         resultado.setText(check);
