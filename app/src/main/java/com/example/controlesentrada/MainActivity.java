@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+	
+	//componentes de tela(views) implementados na activity
     TextView resultado;
     ToggleButton toggle;
     Switch switcher;
