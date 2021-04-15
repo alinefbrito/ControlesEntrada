@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //demonstração de evento de click do Botão
     public void botaoClick(View v)
     {
         resultado.setText(R.string.txtBotao);
