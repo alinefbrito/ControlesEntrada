@@ -2,6 +2,7 @@ package com.example.controlesentrada;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rbd1, rbd2,rbd3;
     CheckBox chk1, chk2,chk3;
     Spinner sp;
+    List<String> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,15 +51,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        sp=findViewById(R.id.spinnerCores);
-    }
-    public void spinerAddItens() {
 
-       //cria uma lista que receberá os valores
-        List<String> list = new ArrayList<String>();
+        //cria uma lista que receberá os valores
+        list = new ArrayList<String>();
         list.add("Vermelho");
         list.add("Verde");
         list.add("Azul");
+        sp = findViewById(R.id.spinnerCores);
+        spinerAddItens();
+        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemID) {
+                if (position >= 0 && position < (list.size() - 1)) {
+                    resultado.setText(list.get(position));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void spinerAddItens() {
+
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
