@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox chk1, chk2,chk3;
     Spinner sp;
     List<String> list;
+    Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,52 +42,20 @@ public class MainActivity extends AppCompatActivity {
         chk1 = findViewById(R.id.chkValor1);
         chk2 = findViewById(R.id.chkValor2);
         chk3 = findViewById(R.id.chkValor3);
+        // btn = findViewById(R.id.b)
         //adiciona a ação de um evento via código
         // se não for definido nas propriedades do elemento deve constar no onCreate
-        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    resultado.setText("Toggle Button Ligado");
-                } else {
-                    resultado.setText("Toggle Button Desligado");
-                }
-            }
-        });
-
+        defineListeners();
+        alimentaSpinner();
         //cria uma lista que receberá os valores
-        list = new ArrayList<String>();
-        list.add("Vermelho");
-        list.add("Verde");
-        list.add("Azul");
-        sp = findViewById(R.id.spinnerCores);
-        spinerAddItens();
-        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemID) {
-                if (position >= 0 && position < (list.size() - 1)) {
-                    resultado.setText(list.get(position));
-                }
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
     }
-    public void spinerAddItens() {
 
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp.setAdapter(dataAdapter);
-        
-    }
     //demonstração de evento de click do Botão
     public void botaoClick(View v)
     {
-        resultado.setText(R.string.txtBotao);
+
     }
     public void checkboxClick(View view) {
 
@@ -127,21 +97,72 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
                 case R.id.rdBtn3:
-                if (checked)
-                {
-                    check = check.concat("Radio Button 3 Selecionado \n");
-                }
-                break;
+                    if (checked) {
+                        check = check.concat("Radio Button 3 Selecionado \n");
+                    }
+                    break;
+
+
         }
         resultado.setText(check);
     }
-public void switchClick(View v)
-{
-    if (switcher.isChecked())
-        resultado.setText("Switch Ligado");
-    else
-        resultado.setText("Switch Desligado");
 
-}
+    public void switchClick(View v) {
+        if (switcher.isChecked())
+            resultado.setText("Switch Ligado");
+        else
+            resultado.setText("Switch Desligado");
 
+    }
+
+    public void defineListeners() {
+
+        //toggle listener
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    resultado.setText("Toggle Button Ligado");
+                } else {
+                    resultado.setText("Toggle Button Desligado");
+                }
+            }
+        });
+
+    }
+
+    public void alimentaSpinner() {
+        list = new ArrayList<String>();
+        list.add("Vermelho");
+        list.add("Verde");
+        list.add("Azul");
+        sp = findViewById(R.id.spinnerCores);
+        spinerAddItens();
+        spinerListener();
+    }
+
+    public void spinerAddItens() {
+
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp.setAdapter(dataAdapter);
+
+    }
+
+    public void spinerListener() {
+        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemID) {
+                if (position >= 0 && position < (list.size() - 1)) {
+                    resultado.setText(list.get(position));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
 }

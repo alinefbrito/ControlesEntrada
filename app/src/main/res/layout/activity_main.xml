@@ -6,152 +6,176 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/textview"
-            android:textSize="24sp" />
+            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/digite_um_texto"
-            android:inputType="textWebEmailAddress"
-            android:minHeight="48dp"
-            android:singleLine="false"
-            android:textColorHint="#546E7A" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="botaoClick"
-            android:text="@string/btn" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:foregroundTint="#F44336" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="127dp"
-            android:layout_height="149dp"
-            android:contentDescription="@string/hedwiges_com_chap_u_seletor"
-            app:srcCompat="@drawable/chapeu" />
-
-        <CheckBox
-            android:id="@+id/chkValor1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:onClick="checkboxClick"
-            android:text="@string/ckb_valor_1" />
-
-        <CheckBox
-            android:id="@+id/chkValor2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:onClick="checkboxClick"
-            android:text="@string/ckb_valor_2" />
-
-        <CheckBox
-            android:id="@+id/chkValor3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:onClick="checkboxClick"
-            android:text="@string/ckb_valor_3" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/rdBtn1"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:onClick="radioBtnClick"
-                android:text="@string/valor_1" />
+                android:text="@string/textview"
+                android:textSize="24sp" />
 
-            <RadioButton
-                android:id="@+id/rdBtn2"
+            <EditText
+                android:id="@+id/editTextA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@color/colorAccent"
+                android:ems="10"
+                android:foregroundTint="@color/colortext"
+                android:hint="@string/digite_um_texto"
+                android:inputType="textWebEmailAddress"
                 android:minHeight="48dp"
-                android:onClick="radioBtnClick"
-                android:text="@string/valor_2" />
+                android:singleLine="false"
+                android:textColorHint="@color/colorhint" />
 
-            <RadioButton
-                android:id="@+id/rdBtn3"
+            <ToggleButton
+                android:id="@+id/toggleButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBtn"
+                android:checked="false"
+                android:text="@string/togglebutton"
+                android:textColor="@color/colortext"
+                tools:ignore="TextContrastCheck" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:foregroundTint="#F44336" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="127dp"
+                android:layout_height="149dp"
+                android:contentDescription="@string/hedwiges_com_chap_u_seletor"
+                app:srcCompat="@drawable/chapeu" />
+
+            <Button
+                android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorBtn"
+                android:foregroundTint="@color/colortext"
+                android:onClick="botaoClick"
+                android:text="@string/btn"
+                android:textColor="#212121" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colortext"
+                android:textSize="24sp" />
+
+            <CheckBox
+                android:id="@+id/chkValor1"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:width="200dp"
+                android:foregroundTint="@color/colortext"
                 android:minHeight="48dp"
-                android:onClick="radioBtnClick"
-                android:text="@string/valor_3" />
+                android:onClick="checkboxClick"
+                android:text="@string/ckb_valor_1" />
 
-        </RadioGroup>
+            <CheckBox
+                android:id="@+id/chkValor2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:foregroundTint="@color/colortext"
+                android:minHeight="48dp"
+                android:onClick="checkboxClick"
+                android:text="@string/ckb_valor_2" />
 
-        <Switch
-            android:id="@+id/swtValor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:minHeight="48dp"
-            android:onClick="switchClick"
-            android:text="@string/switcher" />
+            <CheckBox
+                android:id="@+id/chkValor3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:foregroundTint="@color/colortext"
+                android:minHeight="48dp"
+                android:onClick="checkboxClick"
+                android:text="@string/ckb_valor_3" />
 
-        <ToggleButton
-            android:id="@+id/toggleButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:text="@string/togglebutton"
-            android:textColor="#455A64"
-            tools:ignore="TextContrastCheck" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Spinner
-            android:id="@+id/spinnerCores"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:contentDescription="@string/cores" />
+                <RadioButton
+                    android:id="@+id/rdBtn1"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:foregroundTint="@color/colorhint"
+                    android:minHeight="48dp"
+                    android:onClick="radioBtnClick"
+                    android:text="@string/valor_1" />
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:foregroundTint="#F44336" />
+                <RadioButton
+                    android:id="@+id/rdBtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foregroundTint="@color/colorhint"
+                    android:minHeight="48dp"
+                    android:onClick="radioBtnClick"
+                    android:text="@string/valor_2" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/resultados" />
+                <RadioButton
+                    android:id="@+id/rdBtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foregroundTint="@color/colorhint"
+                    android:minHeight="48dp"
+                    android:onClick="radioBtnClick"
+                    android:text="@string/valor_3" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="24sp" />
+            </RadioGroup>
 
-    </LinearLayout>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swtValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:foregroundTint="@color/colorPrimaryDark"
+                android:minHeight="48dp"
+                android:onClick="switchClick"
+                android:text="@string/switcher"
+                android:textColorHint="@color/colorhint"
+                android:textColorLink="@color/colorPrimaryDark" />
+
+            <Spinner
+                android:id="@+id/spinnerCores"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:contentDescription="@string/cores"
+                android:foregroundTint="@color/colortext" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:foregroundTint="#F44336" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/resultados"
+                android:textColor="@color/colortext" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
