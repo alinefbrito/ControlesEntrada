@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:backgroundTint="@color/colorPrimary"
+            android:dividerPadding="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -25,9 +26,9 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/editTextA"
+                android:id="@+id/editTextEntr"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="69dp"
                 android:autofillHints=""
                 android:background="@color/colorAccent"
                 android:ems="10"
@@ -36,17 +37,18 @@
                 android:inputType="textWebEmailAddress"
                 android:minHeight="48dp"
                 android:singleLine="false"
-                android:textColorHint="@color/colorhint" />
+                android:textColorHint="@color/colorhint"
+                tools:ignore="VisualLintTextFieldSize" />
 
-            <ToggleButton
-                android:id="@+id/toggleButton"
-                android:layout_width="300dp"
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorBtn"
-                android:checked="false"
-                android:text="@string/togglebutton"
-                android:textColor="@color/colortext"
-                tools:ignore="TextContrastCheck" />
+                android:foregroundTint="@color/colortext"
+                android:onClick="botaoClick"
+                android:text="@string/btn"
+                android:textColor="#212121" />
 
             <View
                 android:id="@+id/divider"
@@ -63,70 +65,81 @@
                 android:contentDescription="@string/hedwiges_com_chap_u_seletor"
                 app:srcCompat="@drawable/chapeu" />
 
-            <Button
-                android:id="@+id/button"
+            <ToggleButton
+                android:id="@+id/toggleButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:checked="false"
+                android:text="@string/togglebutton"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="TextContrastCheck" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorBtn"
-                android:foregroundTint="@color/colortext"
-                android:onClick="botaoClick"
-                android:text="@string/btn"
-                android:textColor="#212121" />
+                android:layout_height="65dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView3"
+                <CheckBox
+                    android:id="@+id/chkValor1"
+                    android:layout_width="144dp"
+                    android:layout_height="wrap_content"
+                    android:width="150dp"
+                    android:foregroundTint="@color/colortext"
+                    android:maxWidth="100dp"
+                    android:minHeight="48dp"
+                    android:onClick="checkboxClick"
+                    android:text="@string/ckb_valor_1" />
+
+                <CheckBox
+                    android:id="@+id/chkValor2"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:foregroundTint="@color/colortext"
+                    android:minHeight="48dp"
+                    android:onClick="checkboxClick"
+                    android:text="@string/ckb_valor_2" />
+
+                <CheckBox
+                    android:id="@+id/chkValor3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:foregroundTint="@color/colortext"
+                    android:minHeight="48dp"
+                    android:onClick="checkboxClick"
+                    android:text="@string/ckb_valor_3" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colortext"
-                android:textSize="24sp" />
-
-            <CheckBox
-                android:id="@+id/chkValor1"
-                android:layout_width="144dp"
-                android:layout_height="wrap_content"
-                android:width="200dp"
-                android:foregroundTint="@color/colortext"
-                android:minHeight="48dp"
-                android:onClick="checkboxClick"
-                android:text="@string/ckb_valor_1" />
-
-            <CheckBox
-                android:id="@+id/chkValor2"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:foregroundTint="@color/colortext"
-                android:minHeight="48dp"
-                android:onClick="checkboxClick"
-                android:text="@string/ckb_valor_2" />
-
-            <CheckBox
-                android:id="@+id/chkValor3"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:foregroundTint="@color/colortext"
-                android:minHeight="48dp"
-                android:onClick="checkboxClick"
-                android:text="@string/ckb_valor_3" />
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:foregroundTint="#F44336" />
 
             <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rdBtn1"
-                    android:layout_width="200dp"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:foregroundTint="@color/colorhint"
-                    android:minHeight="48dp"
+                    android:minHeight="60dp"
                     android:onClick="radioBtnClick"
                     android:text="@string/valor_1" />
 
                 <RadioButton
                     android:id="@+id/rdBtn2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:width="140dp"
                     android:foregroundTint="@color/colorhint"
-                    android:minHeight="48dp"
+                    android:minHeight="60dp"
                     android:onClick="radioBtnClick"
                     android:text="@string/valor_2" />
 
@@ -134,8 +147,9 @@
                     android:id="@+id/rdBtn3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:width="140dp"
                     android:foregroundTint="@color/colorhint"
-                    android:minHeight="48dp"
+                    android:minHeight="60dp"
                     android:onClick="radioBtnClick"
                     android:text="@string/valor_3" />
 
@@ -143,7 +157,7 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swtValor"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:foregroundTint="@color/colorPrimaryDark"
@@ -172,8 +186,16 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="32dp"
                 android:text="@string/resultados"
                 android:textColor="@color/colortext" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colortext"
+                android:textSize="24sp" />
 
         </LinearLayout>
     </ScrollView>

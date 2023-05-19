@@ -16,4 +16,8 @@
     <string name="resultados">Resultados</string>
     <string name="txtBotao">Você clicou no botão :)</string>
     <string name="cores">escolha uma cor</string>
+    <string name="switch_ligado">Switch Ligado</string>
+    <string name="switch_desligado">Switch Desigado</string>
+    <string name="toggle_button_desligado">Toggle Button Desligado</string>
+    <string name="toggle_button_ligado">Toggle Button Ligado</string>
 </resources>

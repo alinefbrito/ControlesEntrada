@@ -1,19 +1,24 @@
 package com.example.controlesentrada;
 
+import static com.example.controlesentrada.R.id.rdBtn1;
+import static com.example.controlesentrada.R.id.rdBtn2;
+import static com.example.controlesentrada.R.id.rdBtn3;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,26 +28,29 @@ public class MainActivity extends AppCompatActivity {
 	//componentes de tela(views) implementados na activity
     TextView resultado;
     ToggleButton toggle;
-    Switch switcher;
+    SwitchCompat switcher;
     RadioButton rbd1, rbd2,rbd3;
     CheckBox chk1, chk2,chk3;
     Spinner sp;
     List<String> list;
     Button btn;
+    EditText vlr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        resultado  = findViewById(R.id.textView3);
+
+        resultado = findViewById(R.id.textView3);
         toggle = (ToggleButton) findViewById(R.id.toggleButton);
-        switcher = findViewById(R.id.swtValor);
-        rbd1 = findViewById(R.id.rdBtn1);
-        rbd2 = findViewById(R.id.rdBtn2);
-        rbd3 = findViewById(R.id.rdBtn3);
+        switcher = (SwitchCompat) findViewById(R.id.swtValor);
+        rbd1 = findViewById(rdBtn1);
+        rbd2 = findViewById(rdBtn2);
+        rbd3 = findViewById(rdBtn3);
         chk1 = findViewById(R.id.chkValor1);
         chk2 = findViewById(R.id.chkValor2);
         chk3 = findViewById(R.id.chkValor3);
-        // btn = findViewById(R.id.b)
+        btn = findViewById(R.id.button);
+        vlr = findViewById(R.id.editTextEntr);
         //adiciona a ação de um evento via código
         // se não for definido nas propriedades do elemento deve constar no onCreate
         defineListeners();
@@ -84,19 +92,19 @@ public class MainActivity extends AppCompatActivity {
         String check = "";
         // Check which radio button was clicked
         switch(view.getId()) {
-            case R.id.rdBtn1:
+            case rdBtn1:
                 if (checked)
                 {
                     check = check.concat("Radio Button 1 Selecionado \n");
                 }
                     break;
-            case R.id.rdBtn2:
+            case rdBtn2:
                 if (checked)
                 {
                     check = check.concat("Radio Button 2 Selecionado \n");
                 }
                 break;
-                case R.id.rdBtn3:
+            case rdBtn3:
                     if (checked) {
                         check = check.concat("Radio Button 3 Selecionado \n");
                     }
@@ -109,29 +117,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void switchClick(View v) {
         if (switcher.isChecked())
-            resultado.setText("Switch Ligado");
+            resultado.setText(R.string.switch_ligado);
         else
-            resultado.setText("Switch Desligado");
+            resultado.setText(R.string.switch_desligado);
 
     }
 
     public void defineListeners() {
 
         //toggle listener
-        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    resultado.setText("Toggle Button Ligado");
-                } else {
-                    resultado.setText("Toggle Button Desligado");
-                }
+        toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                resultado.setText(R.string.toggle_button_ligado);
+            } else {
+                resultado.setText(R.string.toggle_button_desligado);
             }
         });
 
+        btn.setOnClickListener(v -> {
+            String texto = String.valueOf(vlr.getText());
+            Toast.makeText(MainActivity.this, "Texto da EditText é: " + texto, Toast.LENGTH_LONG).show();
+        });
     }
 
     public void alimentaSpinner() {
-        list = new ArrayList<String>();
+        list = new ArrayList<>();
         list.add("Vermelho");
         list.add("Verde");
         list.add("Azul");
@@ -143,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     public void spinerAddItens() {
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(dataAdapter);
